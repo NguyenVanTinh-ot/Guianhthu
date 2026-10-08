@@ -1,0 +1,166 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Anh Thư 💗</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffd6e7, #d9e8ff);
+            overflow: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 40px 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .heart {
+            font-size: 70px;
+            animation: heartbeat 1.3s infinite;
+        }
+
+        h1 {
+            margin: 15px 0;
+            color: #ff5c8a;
+        }
+
+        .message {
+            color: #555;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 20px 0;
+        }
+
+        button {
+            border: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            background: #ff6f9f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff477e;
+            transform: scale(1.05);
+        }
+
+        #extra {
+            margin-top: 20px;
+            color: #ff5c8a;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -30px;
+            font-size: 25px;
+            animation: float 5s linear forwards;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="heart">💗</div>
+
+        <h1>Anh Thư ơi...</h1>
+
+        <p class="message">
+            Biết là hôm nay Anh Thư đang buồn,<br>
+            nên tớ muốn gửi một chút dễ thương này cho cậu.
+            <br><br>
+
+            Không sao đâu, có những ngày mình mệt,
+            buồn một chút cũng chẳng sao cả.
+            <br><br>
+
+            Cậu không cần phải lúc nào cũng mạnh mẽ.
+            Cứ nghỉ ngơi một chút, rồi mọi chuyện sẽ từ từ ổn hơn thôi. 🌷
+        </p>
+
+        <button onclick="showMessage()">
+            Bấm vào đây nè 💕
+        </button>
+
+        <p id="extra"></p>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("extra").innerHTML =
+                "Anh Thư nhớ nha: hôm nay có thể không vui,<br>" +
+                "nhưng ngày mai vẫn còn rất nhiều điều tốt đẹp đang chờ cậu. 💗<br><br>" +
+                "Cười một cái được không? 😊";
+
+            createHeart();
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+
+            heart.classList.add("floating-heart");
+            heart.innerHTML = "💗";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 1000);
+    </script>
+
+</body>
+</html>
+```
